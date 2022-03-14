@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Movies"
+             x:Class="MovieApp.Views.MoviesListView">
+    <ContentPage.Content>
+
+        <StackLayout Margin="15">
+
+            <Grid RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Text="search"
+                        Command="{Binding LoadDataCommand}"
+                        FontSize="Medium"/>
+
+                <Entry Grid.Row="0"
+                       Grid.Column="1"
+                       FontSize="Medium"
+                       Text="{Binding Search}"/>
+
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding movies}"
+                            SelectedItem="{Binding SelectedMovie}"
+                            EmptyView="sorry no data available"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            SelectionChangedCommand="{Binding GoToDetailsCommand}"
+                            SelectionMode="Single">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                        Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Row="0"
+                                   Grid.Column="0"
+                                   Source="{Binding imgLink}"
+                                   VerticalOptions="Center"
+                                   Margin="5"
+                                   Aspect="AspectFill"/>
+
+                            <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="{Binding title}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="End"
+                                   FontSize="Small"/>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,1 @@
+C:\Users\Ayman\source\repos\MovieApp\MovieApp\MovieApp.UWP\MovieApp.UWP.csproj;x86

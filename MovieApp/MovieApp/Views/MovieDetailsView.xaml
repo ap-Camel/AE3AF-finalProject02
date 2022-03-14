@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Details"
+             x:Class="MovieApp.Views.MovieDetailsView">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout BackgroundColor="Aqua">
+                <Label Text="{Binding SelectedMovie.title}"
+                    Margin="10"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+            </StackLayout>
+
+            <Grid HeightRequest="250">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="0.25*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.RowSpan="4"
+                       Source="{Binding SelectedMovie.imgLink}"
+                       VerticalOptions="Center"
+                       Margin="5"
+                       Aspect="AspectFill"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       Text="review"
+                       Margin="15, 20, 15, 15"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="rating"
+                       Margin="15, 20, 15, 15"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="status"
+                       Margin="15, 20, 15, 15"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="released"
+                       Margin="15, 20, 15, 15"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="2"
+                       Margin="15, 20, 15, 15"
+                       Text="{Binding SelectedMovie.certificate}"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="2"
+                       Margin="15, 20, 15, 15"
+                       Text="{Binding SelectedMovie.rating}"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="2"
+                       Grid.Column="2"
+                       Margin="15, 20, 15, 15"
+                       Text="{Binding SelectedMovie.status}"
+                       FontSize="Small"/>
+
+                <Label Grid.Row="3"
+                       Grid.Column="2"
+                       Margin="15, 20, 15, 15"
+                       Text="{Binding SelectedMovie.dateReleased}"
+                       FontSize="Small"/>
+
+            </Grid>
+
+            <Grid BackgroundColor="AliceBlue" Padding="5">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0"
+                        Grid.Column="0"
+                        Text="share"
+                        Command="{Binding ShareTextCommand}"
+                        FontSize="Small"/>
+
+                <Button Grid.Row="0"
+                        Grid.Column="1"
+                        Text="fav"
+                        Command="{Binding FavouritingCommand}"
+                        FontSize="Small"/>
+
+                <Button Grid.Row="0"
+                        Grid.Column="2"
+                        Text="trailer"
+                        Command="{Binding GoToTailerCommand}"
+                        FontSize="Small"/>
+
+                <Button Grid.Row="0"
+                        Grid.Column="3"
+                        Command="{Binding GoToPageCommand}"
+                        Text="Page"
+                        FontSize="Small"/>
+
+            </Grid>
+
+            <Label Text="synopsis:"
+                   Margin="10"/>
+
+            <Label Text="{Binding SelectedMovie.overview}"
+                   Margin="20, 5, 20, 10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
